@@ -3,9 +3,9 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const compose = require("./compose");
 
-test("compose", async (t) => {
+test("compose", (t) => {
   t.plan(3);
-  const result = await compose();
+  const result = compose();
   t.equal(typeof result, "string", "compose returns a string");
   const dom = new JSDOM(result);
   t.equal(
@@ -13,8 +13,12 @@ test("compose", async (t) => {
     1,
     "compose contains a div with id='edit' with exactly 1 child node"
   );
+  const pullTabChildElementType = dom.window.document
+    .getElementById("pulltab")
+    .children.item(0)
+    .tagName.toUpperCase();
   t.equal(
-    dom.window.document.getElementById("pulltab").children.item(0).tagName,
+    pullTabChildElementType,
     "SVG",
     "compose contains a div with id='pulltab' with a first child that is an svg"
   );

@@ -9,8 +9,8 @@ app.use(
   express.static(path.resolve(__dirname, "..", "client/assets"))
 );
 
-app.get("/", async (req, res) => {
-  const homePage = await compose();
+app.get("/", (req, res) => {
+  const homePage = compose();
   res.send(homePage);
 });
 
