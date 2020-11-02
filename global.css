@@ -34,4 +34,5 @@ html, body {
 
 h1 {
   font-weight: normal;
+  font-size: calc( 2.25em + (11.25 - 2.25) * ( (100vw - 20em) / ( 100 - 20) ));
 }
