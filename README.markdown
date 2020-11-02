@@ -3,3 +3,7 @@
 ## Dependencies
 
 * node - I chose to use the LTS as of 2020-11-02, v14.15.0
+
+### Development
+
+* yarn - v2 is used to manage node ecosystem packages
