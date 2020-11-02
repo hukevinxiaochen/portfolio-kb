@@ -23,6 +23,7 @@
     "feather-icons": "^4.28.0"
   },
   "devDependencies": {
+    "jsdom": "^16.4.0",
     "tap-spec": "^5.0.0",
     "tape": "^5.0.1"
   }
