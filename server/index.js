@@ -1,9 +1,17 @@
 require("dotenv").config();
+const path = require("path");
 const express = require("express");
 const app = express();
+const compose = require("./compose");
 
-app.get("/", (req, res) => {
-  res.end("Hello");
+app.use(
+  "/static",
+  express.static(path.resolve(__dirname, "..", "client/assets"))
+);
+
+app.get("/", async (req, res) => {
+  const homePage = await compose();
+  res.send(homePage);
 });
 
 app.listen(
