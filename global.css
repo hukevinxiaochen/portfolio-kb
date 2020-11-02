@@ -1,0 +1,7 @@
+html, body {
+  font-family: 'et-book', Georgia, serif;
+  font-weight: normal;
+  font-variant-ligatures: common-ligatures;
+  font-variant-numeric: oldstyle-nums;
+  margin: 0;
+}
