@@ -1,8 +1,8 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  console.log("Request object", req);
   res.end("Hello");
 });
 
