@@ -25,6 +25,16 @@
     font-display: swap;
 }
 
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
 html, body {
   font-family: 'et-book', Georgia, serif;
   font-variant-ligatures: common-ligatures;
