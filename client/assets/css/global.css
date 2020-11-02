@@ -42,7 +42,33 @@ html, body {
   margin: 0;
 }
 
+body {
+  display: grid;
+  grid-template-columns: [sidebar] 10vw [material] 90vw;
+  grid-template-rows: [everything] 100vh;
+}
+
 h1 {
   font-weight: normal;
   font-size: calc( 2.25em + (11.25 - 2.25) * ( (100vw - 20em) / ( 100 - 20) ));
+}
+
+nav {
+  display: none;
+}
+
+#material {
+  margin: 0 auto;
+  max-width: 80vw;
+}
+
+#pulltab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#pulltab > svg {
+  display: block;
 }
