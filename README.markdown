@@ -6,4 +6,4 @@
 
 ### Development
 
-* yarn - v2 is used to manage node ecosystem packages
+* npm - 
