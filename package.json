@@ -1,0 +1,22 @@
+{
+  "name": "personal",
+  "version": "1.0.0",
+  "description": "a personal website with powerful note sharing and search options",
+  "main": "server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khu-md/personal.git"
+  },
+  "author": "Kevin Hu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khu-md/personal/issues"
+  },
+  "homepage": "https://github.com/khu-md/personal#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
