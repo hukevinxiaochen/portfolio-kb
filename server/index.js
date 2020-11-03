@@ -1,17 +1,40 @@
 require("dotenv").config();
 const path = require("path");
+const fs = require("fs");
 const express = require("express");
 const app = express();
-const compose = require("../g7r");
 
 app.use(
   "/static",
   express.static(path.resolve(__dirname, "..", "client/assets"))
 );
 
-app.get("/", (req, res) => {
-  const homePage = compose();
-  res.send(homePage);
+app.get("/", (req, res, next) => {
+  const pathToBuiltIndexHTML = path.resolve(
+    __dirname,
+    "..",
+    "dist",
+    "index.html"
+  );
+
+  try {
+    if (fs.existsSync(pathToBuiltIndexHTML)) {
+      res.sendFile(pathToBuiltIndexHTML);
+    } else {
+      throw new Error("Could not locate dist/index.html!");
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.use((req, res, next) => {
+  res.status(404).send("Not found");
+});
+
+app.use((err, req, res, next) => {
+  console.log(req.method, req.path, err.message);
+  res.status(500).send(`Internal server error: ${err.message}`);
 });
 
 app.listen(

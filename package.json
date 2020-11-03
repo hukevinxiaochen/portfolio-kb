@@ -5,7 +5,8 @@
   "main": "server",
   "scripts": {
     "start": "node -r '@babel/register' server",
-    "test": "tape -r '@babel/register' './tests/**/*.test.js' | tap-spec"
+    "test": "tape -r '@babel/register' './tests/**/*.test.js' | tap-spec",
+    "build": "node -r '@babel/register' b3d"
   },
   "repository": {
     "type": "git",
