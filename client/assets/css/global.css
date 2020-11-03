@@ -69,6 +69,11 @@ nav {
   align-items: flex-start;
 }
 
+#pulltab:hover {
+  background-color: #eee8d5;
+  cursor: pointer;
+}
+
 #pulltab > svg {
   display: block;
 }
