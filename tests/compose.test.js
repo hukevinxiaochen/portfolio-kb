@@ -1,7 +1,10 @@
 const test = require("tape");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
-const compose = require("./compose");
+const path = require("path");
+
+const projectRoot = path.resolve(__dirname, "..");
+const compose = require(path.resolve(projectRoot, "g7r"));
 
 test("compose", (t) => {
   t.plan(3);
