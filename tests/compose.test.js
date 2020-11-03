@@ -3,9 +3,15 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const path = require("path");
 
+/**
+ * Import modules to test
+ */
 const projectRoot = path.resolve(__dirname, "..");
 const compose = require(path.resolve(projectRoot, "g7r"));
 
+/**
+ * Test Suites
+ */
 test("compose", (t) => {
   t.plan(3);
   const result = compose();
