@@ -25,16 +25,6 @@
     font-display: swap;
 }
 
-.feather {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-}
-
 html, body {
   font-family: 'et-book', Georgia, serif;
   font-variant-ligatures: common-ligatures;
@@ -44,8 +34,9 @@ html, body {
 
 body {
   display: grid;
-  grid-template-columns: [sidebar] 10vw [material] 90vw;
-  grid-template-rows: [everything] 100vh;
+  grid-template-columns: 30px auto;
+  grid-template-rows: 100vh;
+  grid-template-areas: "sidebar main"
 }
 
 h1 {
@@ -53,13 +44,12 @@ h1 {
   font-size: calc( 2.25em + (11.25 - 2.25) * ( (100vw - 20em) / ( 100 - 20) ));
 }
 
-nav {
-  display: none;
+#material {
+  grid-area: main;
 }
 
-#material {
-  margin: 0 auto;
-  max-width: 80vw;
+#material > header {
+  padding: 2em;
 }
 
 #pulltab {
@@ -67,6 +57,8 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  grid-area: sidebar;
+  position: relative;
 }
 
 #pulltab:hover {
@@ -76,4 +68,15 @@ nav {
 
 #pulltab > svg {
   display: block;
+  visibility: hidden;
+}
+
+#pulltab:hover > #pull-arrow {
+  visibility: visible;
+}
+
+#edit {
+  visibility: hidden;
+  position: absolute;
+  top: 10vh;
 }
