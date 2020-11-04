@@ -61,22 +61,22 @@ h1 {
   position: relative;
 }
 
+#pulltab > #edit {
+  display: block;
+  visibility: hidden;
+}
+
+
+#edit {
+  visibility: hidden;
+}
+
+/* pulltab hover effects */
 #pulltab:hover {
   background-color: #eee8d5;
   cursor: pointer;
 }
 
-#pulltab > svg {
-  display: block;
-  visibility: hidden;
-}
-
-#pulltab:hover > #pull-arrow {
+#pulltab:hover > #edit {
   visibility: visible;
-}
-
-#edit {
-  visibility: hidden;
-  position: absolute;
-  top: 10vh;
 }

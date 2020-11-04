@@ -6,7 +6,6 @@ export const Page = () => (
   <Scaffold>
     <div id="pulltab">
       <Edit3 id="edit" />
-      <ArrowRight id="pull-arrow" />
     </div>
     <div id="material">
       <header>
