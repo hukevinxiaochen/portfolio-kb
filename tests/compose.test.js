@@ -11,15 +11,19 @@ const compose = require(path.resolve(projectRoot, "g7r"));
 
 /**
  * Test Suites
+ *
+ * compose is a function that should generate an HTML string.
+ * Running it should generate a home page with: edit icon,
+ * pulltab icon.
  */
 test("compose", (t) => {
   t.plan(3);
   const result = compose();
 
-  // 1
+  // compose returns a string
   t.equal(typeof result, "string", "compose returns a string");
 
-  // 2
+  // compose result contains an svg with id='edit'
   const dom = new JSDOM(result);
   t.equal(
     dom.window.document.getElementById("edit").tagName.toUpperCase(),
@@ -27,7 +31,8 @@ test("compose", (t) => {
     "compose result contains an svg with id='edit'"
   );
 
-  // 3
+  // compose result contains a div with id='pulltab'
+  // with a first child that is an svg
   const pullTabChildElementType = dom.window.document
     .getElementById("pulltab")
     .children.item(0)
@@ -35,6 +40,7 @@ test("compose", (t) => {
   t.equal(
     pullTabChildElementType,
     "SVG",
-    "compose result contains a div with id='pulltab' with a first child that is an svg"
+    `compose result contains a div with id='pulltab' 
+    with a first child that is an svg`
   );
 });
