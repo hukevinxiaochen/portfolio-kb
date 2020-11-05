@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node -r '@babel/register' server",
     "test": "TEST=test tape -r '@babel/register' './tests/**/*.test.js' | tap-spec",
-    "build": "node -r '@babel/register' b3d"
+    "build-html": "node -r '@babel/register' b3d",
+    "build-js-dev": "webpack --config webpack.dev.config.js"
   },
   "repository": {
     "type": "git",
@@ -28,12 +29,15 @@
     "feather-icons": "^4.28.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-feather": "^2.0.8"
+    "react-feather": "^2.0.8",
+    "swipejs": "^2.2.18"
   },
   "devDependencies": {
     "jsdom": "^16.4.0",
     "mock-fs": "^4.13.0",
     "tap-spec": "^5.0.0",
-    "tape": "^5.0.1"
+    "tape": "^5.0.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.2.0"
   }
 }

@@ -6,7 +6,7 @@ export const Scaffold = ({ children }) => (
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href="static/css/global.css" />
-      <script defer type="text/javascript" src="static/js/index.js"></script>
+      <script defer type="text/javascript" src="dist/bundle.js"></script>
       <title>kevin hu</title>
     </head>
     <body>{children}</body>

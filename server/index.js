@@ -4,10 +4,9 @@ const fs = require("fs");
 const express = require("express");
 const app = express();
 
-app.use(
-  "/static",
-  express.static(path.resolve(__dirname, "..", "client/assets"))
-);
+const staticRoot = path.resolve(__dirname, "..");
+app.use("/static", express.static(path.resolve(staticRoot, "client/assets")));
+app.use("/dist", express.static(path.resolve(staticRoot, "dist")));
 
 app.get("/", (req, res, next) => {
   const pathToBuiltIndexHTML = path.resolve(

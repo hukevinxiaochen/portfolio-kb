@@ -80,3 +80,20 @@ h1 {
 #pulltab:hover > #edit {
   visibility: visible;
 }
+
+/* Swipe.js */
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float: left;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
