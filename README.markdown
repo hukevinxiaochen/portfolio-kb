@@ -45,3 +45,52 @@
 ### .env
 ### dist
 
+## Database Schema
+
+### Node:Author
+- Given Name
+- Family Name
+- Unique ID
+- Google ID
+- Github ID
+- Twitter ID
+- Facebook ID
+- LinkedIn ID
+
+### Node:Note
+- Title
+- Date Created
+- Date Last Modified
+- Last Modified By
+- Note
+- ID
+
+### Node:Question
+- Date Created
+- Date Last Modified
+- Last Modified By
+- Question
+- ID
+
+### Node:Story
+- Title
+- Date Created
+- Date Last Modified
+- Last Modified By
+- Story
+- ID
+
+### Relation:Take
+- Author(s) may take a Note
+
+### Relation:Ask
+- Author(s) may ask a Question
+
+### Relation:Tell
+- Author(s) may tell a Story
+
+### Relation:Support
+- A Note may support another Note
+
+### Relation:Relate to
+- Any Note, Story, Question may relate to another Note, Story, Question to be considered in totality
