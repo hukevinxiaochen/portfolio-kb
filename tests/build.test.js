@@ -1,6 +1,6 @@
 const test = require("tape");
-const mock = require("mock-fs");
 const path = require("path");
+const mock = require("mock-fs");
 
 /**
  * Import modules to test
