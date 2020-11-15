@@ -3,7 +3,7 @@ const neo4j = require("neo4j-driver");
 const connectionParams = {
   uri: "bolt://localhost",
   user: "neo4j",
-  password: "neo4j",
+  password: "Neo4j",
 };
 
 const driver = neo4j.driver(
@@ -15,8 +15,9 @@ const givenName = "Kevin";
 
 (async () => {
   try {
+    // consumed eagerly
     const result = await session.run(
-      "CREATE (k:Author {givenName: $givenName}) RETURN k",
+      "MERGE (k:Author {givenName: $givenName}) RETURN k",
       {
         givenName: givenName,
       }
@@ -28,8 +29,7 @@ const givenName = "Kevin";
   } catch (err) {
     console.log(err.code, err.message, err.stack);
   } finally {
-    await session.close();
+    session.close();
+    driver.close();
   }
-
-  await driver.close();
 })();
