@@ -2,7 +2,7 @@ console.log("Client JavaScript starts here");
 /* Toggle Edit Mode */
 
 // Swipe strategy
-const Swipe = require("swipejs");
+import Swipe from "swipejs";
 window.mySwipe = new Swipe(document.getElementById("slider"), {
   startSlide: 0,
   auto: 3000,
