@@ -3,14 +3,11 @@ console.log("Client JavaScript starts here");
 
 // Swipe strategy
 import Swipe from "swipejs";
+
 window.mySwipe = new Swipe(document.getElementById("slider"), {
   startSlide: 0,
-  auto: 3000,
   draggable: true,
-  autoRestart: false,
   continuous: true,
-  disableScroll: true,
-  stopPropagation: true,
   callback: function (index, element, dir) {},
   transitionEnd: function (index, element) {},
 });
