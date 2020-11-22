@@ -3,8 +3,14 @@ import compose from "../g7r";
 const path = require("path");
 const fs = require("fs");
 
-const writePath = path.resolve(__dirname, "..", "dist", "index.html");
-const writeDir = path.resolve(__dirname, "..", "dist");
+/**
+ * build
+ *
+ * @param {string} destDir - the name of the directory in which to output 
+ * a completed static site.
+ * @param {string} destFile - the filename of the final site, 
+ * statically rendered.
+ */
 const build = (destDir = "dist", destFile = "index.html") => {
   return {
     destDirExists: fs.existsSync(destDir),
@@ -12,6 +18,12 @@ const build = (destDir = "dist", destFile = "index.html") => {
   };
 };
 
+// private
+const writePath = path.resolve(__dirname, "..", "dist", "index.html");
+const writeDir = path.resolve(__dirname, "..", "dist");
+
+// output some HTML using compose
+// when run in PRODUCTION mode
 if (!process.env.TEST) {
   const { destDirExists, destFileExists } = build(writeDir, writePath);
   if (destDirExists) {
