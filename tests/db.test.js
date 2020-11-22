@@ -1,5 +1,4 @@
 const test = require("tape");
-const path = require("path");
 const neo4j = require("neo4j-driver");
 const actions = require("../server/actions");
 
@@ -8,6 +7,7 @@ const connectionParams = {
   user: "neo4j",
   password: "Neo4j",
 };
+
 const driver = neo4j.driver(
   connectionParams.uri,
   neo4j.auth.basic(connectionParams.user, connectionParams.password)
