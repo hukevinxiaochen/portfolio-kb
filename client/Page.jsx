@@ -1,6 +1,6 @@
 import React from "react";
-import { Scaffold } from "./components";
 import { Edit3, ArrowRight } from "react-feather";
+import { Scaffold } from "./components";
 
 export const Page = () => (
   <Scaffold>

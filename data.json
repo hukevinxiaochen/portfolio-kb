@@ -1,4 +1,0 @@
-{
-  "author": "Kevin",
-  "note": "# Error handling #use/javascript\n## Node\nError\n[Errors | Node.js v14.15.0 Documentation](https://nodejs.org/docs/latest-v14.x/api/errors.html#errors_error_code)\n### properties\n* message\n* code\n* stack"
-}
