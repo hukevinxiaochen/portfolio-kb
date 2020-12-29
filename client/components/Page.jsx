@@ -1,9 +1,8 @@
 import React from "react";
 import { Edit3, ArrowRight } from "react-feather";
-import { Scaffold } from "./components";
 
-export const Page = () => (
-  <Scaffold>
+export const EditablePage = (title) => (
+  <>
     <div id="pulltab">
       <Edit3 id="edit" />
     </div>
@@ -11,7 +10,7 @@ export const Page = () => (
       <div className="swipe-wrap">
         <div id="material">
           <header>
-            <h1>kevin hu</h1>
+            <h1>{title}</h1>
           </header>
         </div>
         <div id="editable">
@@ -19,5 +18,5 @@ export const Page = () => (
         </div>
       </div>
     </div>
-  </Scaffold>
+  </>
 );

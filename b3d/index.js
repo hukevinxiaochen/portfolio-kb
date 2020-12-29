@@ -6,9 +6,9 @@ const fs = require("fs");
 /**
  * build
  *
- * @param {string} destDir - the name of the directory in which to output 
+ * @param {string} destDir - the name of the directory in which to output
  * a completed static site.
- * @param {string} destFile - the filename of the final site, 
+ * @param {string} destFile - the filename of the final site,
  * statically rendered.
  */
 const build = (destDir = "dist", destFile = "index.html") => {
@@ -26,16 +26,20 @@ const writeDir = path.resolve(__dirname, "..", "dist");
 // when run in PRODUCTION mode
 if (!process.env.TEST) {
   const { destDirExists, destFileExists } = build(writeDir, writePath);
-  if (destDirExists) {
-    fs.writeFile(writePath, compose(), () => {
-      console.log("Successfully built index.html");
-    });
-  } else {
-    fs.mkdirSync(writeDir);
-    fs.writeFile(writePath, compose(), () => {
-      console.log("Successfully built index.html");
-    });
-  }
+  compose().then((htmlData) => {
+    if (destDirExists) {
+      fs.writeFile(writePath, htmlData, () => {
+        console.log("Successfully built index.html");
+      });
+    } else {
+      fs.mkdirSync(writeDir);
+      fs.writeFile(writePath, htmlData, () => {
+        console.log("Successfully built index.html");
+      });
+    }
+  }).catch((error) => {
+    console.log("We caught an error!")
+    console.error(error)});
 }
 
 module.exports = build;

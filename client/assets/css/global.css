@@ -32,68 +32,72 @@ html, body {
   margin: 0;
 }
 
-body {
-  display: grid;
-  grid-template-columns: 30px auto;
-  grid-template-rows: 100vh;
-  grid-template-areas: "sidebar main"
-}
+/* body { */
+/*   display: grid; */
+/*   grid-template-columns: 30px auto; */
+/*   grid-template-rows: 100vh; */
+/*   grid-template-areas: "sidebar main" */
+/* } */
 
 h1 {
   font-weight: normal;
   font-size: calc( 2.25em + (11.25 - 2.25) * ( (100vw - 20em) / ( 100 - 20) ));
 }
 
-#material {
-  grid-area: main;
+p, ul, li {
+  font-weight: normal;
+  font-size: calc( 1em + (2 - 1) * ( (100vw - 20em) / ( 100 - 20) ));
 }
+/* #material { */
+/*   grid-area: main; */
+/* } */
 
-#material > header {
-  padding: 2em;
-}
+/* #material > header { */
+/*   padding: 2em; */
+/* } */
 
-#pulltab {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  grid-area: sidebar;
-  position: relative;
-}
+/* #pulltab { */
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   justify-content: center; */
+/*   align-items: flex-start; */
+/*   grid-area: sidebar; */
+/*   position: relative; */
+/* } */
 
-#pulltab > #edit {
-  display: block;
-  visibility: hidden;
-}
+/* #pulltab > #edit { */
+/*   display: block; */
+/*   visibility: hidden; */
+/* } */
 
 
-#edit {
-  visibility: hidden;
-}
+/* #edit { */
+/*   visibility: hidden; */
+/* } */
 
 /* pulltab hover effects */
-#pulltab:hover {
-  background-color: #eee8d5;
-  cursor: pointer;
-}
+/* #pulltab:hover { */
+/*   background-color: #eee8d5; */
+/*   cursor: pointer; */
+/* } */
 
-#pulltab:hover > #edit {
-  visibility: visible;
-}
+/* #pulltab:hover > #edit { */
+/*   visibility: visible; */
+/* } */
 
-/* Swipe.js */
-.swipe {
-  overflow: hidden;
-  visibility: hidden;
-  position: relative;
-}
-.swipe-wrap {
-  overflow: hidden;
-  position: relative;
-}
-.swipe-wrap > div {
-  float: left;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
+/* /1* Swipe.js *1/ */
+/* .swipe { */
+/*   overflow: hidden; */
+/*   visibility: hidden; */
+/*   position: relative; */
+/* } */
+/* .swipe-wrap { */
+/*   overflow: hidden; */
+/*   position: relative; */
+/* } */
+/* .swipe-wrap > div { */
+/*   float: left; */
+/*   width: 100%; */
+/*   position: relative; */
+/*   overflow: hidden; */
+/* } */
