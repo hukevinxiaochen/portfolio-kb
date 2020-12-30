@@ -5,6 +5,34 @@ This is a personal website and resume web application that takes a custom Markdo
 ### Author Experience
 
 - Write MDX and get a landing page, search, contact form, and blog
+- The build process should be:
+  - Easily to explain
+  - Transparent with informative logs regarding what it is doing
+  - Customizable
+- It should be clear how to:
+  - Write MDX
+    - Import an MDX file
+    - Pass MDX to a component
+    - Import a component
+    - Use a component in an MDX file
+  - design my main page
+  - design a custom component to be used by any component
+  - style a component
+  - style the entire application globally
+  - pass data to a page
+  - store data that I want to be used by my components
+  - modify data very quickly and easily (e.g. I should be able to describe a new project or job description in less than 10 minutes and it should be nicely redeployed to my site within that same time)
+- I should be able to easily check:
+  - If I have all required dependencies installed.
+  - Which dependencies are needed only development and which ones are actually
+    needed by my production environment.
+  - What is my target production environment?
+  - What is my test coverage?
+  - What are my outstanding security issues?
+  - When should I update a dependency?
+  - What are my dependencies?
+- I should be able to:
+  - deploy the site with a one-liner `npm run deploy`
 
 ### Reader Experience
 
