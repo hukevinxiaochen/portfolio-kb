@@ -17,7 +17,7 @@ const createNote = async (session, note, author) => {
     result = queryReturn.records;
     return result;
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 };
 

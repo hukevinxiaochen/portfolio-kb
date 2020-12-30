@@ -23,6 +23,7 @@ This is a personal website and resume web application that takes a custom Markdo
   - store data that I want to be used by my components
   - modify data very quickly and easily (e.g. I should be able to describe a new project or job description in less than 10 minutes and it should be nicely redeployed to my site within that same time)
 - I should be able to easily check:
+  - [x] the runtime environment to see if a database instance is running.
   - If I have all required dependencies installed.
   - Which dependencies are needed only development and which ones are actually
     needed by my production environment.

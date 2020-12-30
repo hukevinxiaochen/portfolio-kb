@@ -16,31 +16,40 @@ const compose = require(path.resolve(projectRoot, "g7r"));
  * Running it should generate a home page with: edit icon,
  * pulltab icon.
  */
-test("compose", (t) => {
-  t.plan(3);
-  const result = compose();
+test("compose", async (t) => {
+  const result = await compose();
 
   // compose returns a string
   t.equal(typeof result, "string", "compose returns a string");
 
-  // compose result contains an svg with id='edit'
   const dom = new JSDOM(result);
+
+  const edit = dom.window.document.getElementById("edit")
+  const editTagName = !!edit ? edit.tagName.toUpperCase()
+    : "DOES NOT EXIST"
+
+  const pullTab = dom.window.document
+    .getElementById("pulltab")
+  const pullTabChildElementType = !!pullTab ? pullTab
+    .children.item(0)
+    .tagName.toUpperCase()
+  : "DOES NOT EXIST"
+
+  // compose result contains an svg with id='edit'
   t.equal(
-    dom.window.document.getElementById("edit").tagName.toUpperCase(),
+    editTagName,
     "SVG",
     "compose result contains an svg with id='edit'"
   );
 
   // compose result contains a div with id='pulltab'
   // with a first child that is an svg
-  const pullTabChildElementType = dom.window.document
-    .getElementById("pulltab")
-    .children.item(0)
-    .tagName.toUpperCase();
   t.equal(
     pullTabChildElementType,
     "SVG",
     `compose result contains a div with id='pulltab' 
     with a first child that is an svg`
   );
+
+  t.end()
 });
