@@ -29,7 +29,7 @@ html, body {
   font-family: 'et-book', Georgia, serif;
   font-variant-ligatures: common-ligatures;
   font-variant-numeric: oldstyle-nums;
-  margin: 0;
+  /* margin: 0; */
 }
 
 /* body { */
