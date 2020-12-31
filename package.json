@@ -5,7 +5,7 @@
   "main": "server",
   "scripts": {
     "start": "node -r '@babel/register' server",
-    "test": "TEST=test tape -r '@babel/register' './tests/**/*.test.js' | tap-spec",
+    "test": "TEST=true tape -r '@babel/register' './tests/**/*.test.js' | tap-spec",
     "build-html": "node -r '@babel/register' b3d",
     "build-js-dev": "webpack --config webpack.dev.config.js"
   },

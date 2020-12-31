@@ -6,7 +6,7 @@ This is a personal website and resume web application that takes a custom Markdo
 
 - Write MDX and get a landing page, search, contact form, and blog
 - The build process should be:
-  - Easily to explain
+  - Easy to explain
   - Transparent with informative logs regarding what it is doing
   - Customizable
 - It should be clear how to:
@@ -135,6 +135,8 @@ MDX needs to be converted to JSX, evaluated and then rendered using ReactDOMServ
 ## g7r
 
 ## b3d
+
+This module turns our MDX into HTML.
 
 ## client
 

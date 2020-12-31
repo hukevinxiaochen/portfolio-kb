@@ -5,13 +5,15 @@ const mock = require("mock-fs");
 /**
  * Import modules to test
  */
+// import { planBuild } from "../b3d"
+
 const projectRoot = path.resolve(__dirname, "..");
-const build = require(path.resolve(projectRoot, "b3d"));
+const planBuild = require(path.resolve(projectRoot, "b3d"));
 
 /**
  * Test Suites
  *
- * build takes a destDir argument and a destFile argument and
+ * planBuild takes a destDir argument and a destFile argument and
  * figures out whether a destDir needs to be created, and also
  * notes if there is an older version of destFile that will
  * need to be overwritten.
@@ -19,38 +21,48 @@ const build = require(path.resolve(projectRoot, "b3d"));
  * default value of destDir is `${projectRoot}/dist`
  * default value of destFile is index.html
  */
-test("build", (t) => {
+test("planBuild function", (t) => {
   t.plan(4);
 
-  // build returns an object
-  const result = build();
-  t.equal(typeof result, "object", "build returns an object");
+  // build function returns an object
+  const result = planBuild();
+  t.equal(typeof result, "object", "planBuild function returns an object");
 
   // build is smart
   mock({ emptyDest: {}, fullDest: { "index.html": "<html></html>" } });
-  const destNonExistent = build("dist", "index.html");
-  const destEmpty = build("emptyDest", "index.html");
-  const destFull = build("fullDest", "index.html");
+  const destNonExistent = planBuild("dist", "index.html");
+  const destEmpty = planBuild("emptyDest", "index.html");
+  const destFull = planBuild("fullDest", "index.html");
   mock.restore();
 
-  // build knows when destination directory does not exist
+  // planBuild knows when destination directory does not exist
   t.deepEqual(
     destNonExistent,
     { destDirExists: false, destFileExists: false },
-    "build knows when destination directory does not exist"
+    "planBuild tells when the directory where we want to output our HTML does not exist."
   );
 
-  // build knows when destination file does not exist
+  // planBuild knows when destination file does not exist
   t.deepEqual(
     destEmpty,
     { destDirExists: true, destFileExists: false },
-    "build knows when destination file does not exist"
+    "planBuild knows when destination file does not exist"
   );
 
-  // build knows when destination file does exist
+  // planBuild knows when destination file does exist
   t.deepEqual(
     destFull,
     { destDirExists: true, destFileExists: true },
-    "build knows when destination file does exist"
+    "planBuild knows when destination file does exist"
+  );
+});
+
+// Integration Test
+test("build environment", (t) => {
+  t.plan(1);
+  t.equal(
+    process.env.TEST,
+    'true',
+    "the script is aware of when it is in test environment"
   );
 });
