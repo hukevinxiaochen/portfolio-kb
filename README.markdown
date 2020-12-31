@@ -33,7 +33,8 @@ This is a personal website and resume web application that takes a custom Markdo
   - When should I update a dependency?
   - What are my dependencies?
 - I should be able to:
-  - deploy the site with a one-liner `npm run deploy`
+  - [ ] deploy the site with a one-liner `git push`
+    - [x] expect a webhook to run automatically when a new release or push to main occurs
 
 ### Reader Experience
 
