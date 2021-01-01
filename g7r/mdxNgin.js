@@ -15,7 +15,7 @@ const babelTransform = (code) =>
     plugins: [
       "@babel/plugin-transform-react-jsx",
       "@babel/plugin-proposal-object-rest-spread",
-      ["module-resolver", { alias: {"": "../client"} }],
+      ["module-resolver", { alias: { "": "../client" } }],
     ],
   }).code;
 
