@@ -30,11 +30,14 @@ export const SocialMe = ({ urlArray, children }) => {
   const links = parsedUrls.map((parsedUrl) => {
     let icon = iconUrlMapping[parsedUrl.name];
     return (
-      <a key={parsedUrl.name} href={parsedUrl.href}>
-        <FontAwesomeIcon icon={icon} />
-      </a>
+      <div key={parsedUrl.name}>
+        <a href={parsedUrl.href}>
+          <FontAwesomeIcon icon={icon} size="lg" />
+          {parsedUrl.name}
+        </a>
+      </div>
     );
   });
 
-  return <>{links}</>;
+  return <div id="social-media">{links}</div>;
 };

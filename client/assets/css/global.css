@@ -39,15 +39,28 @@ html, body {
 /*   grid-template-areas: "sidebar main" */
 /* } */
 
-h1 {
-  font-weight: normal;
-  font-size: calc( 2.25em + (11.25 - 2.25) * ( (100vw - 20em) / ( 100 - 20) ));
+header {
+  display: flex;
+  justify-content: center;
 }
 
-p, ul, li {
+h1 {
   font-weight: normal;
-  font-size: calc( 1em + (2 - 1) * ( (100vw - 20em) / ( 100 - 20) ));
+  font-size: calc( 2.25rem + (11.25 - 2.25) * ( (100vw - 20rem) / ( 100 - 20) ));
 }
+
+div, p, ul, li {
+  font-weight: normal;
+  font-size: calc( 1rem + (2 - 1) * ( (100vw - 20rem) / ( 100 - 20) ));
+}
+
+#social-media {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 /* #material { */
 /*   grid-area: main; */
 /* } */

@@ -16,12 +16,14 @@ This is a personal website and resume web application that takes a custom Markdo
     - Import a component
     - Use a component in an MDX file
   - design my main page
-  - design a custom component to be used by any component
+  - [x] design a custom component to be used by any component
+    - [x] make new components in the components directory
   - style a component
   - style the entire application globally
   - pass data to a page
   - store data that I want to be used by my components
   - modify data very quickly and easily (e.g. I should be able to describe a new project or job description in less than 10 minutes and it should be nicely redeployed to my site within that same time)
+  - [ ] use a library like material-ui or bootstrap
 - I should be able to easily check:
   - [x] the runtime environment to see if a database instance is running.
   - If I have all required dependencies installed.
@@ -33,14 +35,14 @@ This is a personal website and resume web application that takes a custom Markdo
   - When should I update a dependency?
   - What are my dependencies?
 - I should be able to:
-  - [ ] deploy the site with a one-liner `git push`
+  - [x] deploy the site with a one-liner `git push`
     - [x] expect a webhook to run automatically when a new release or push to main occurs
 
 ### Reader Experience
 
-- See name of author
+- [x] See name of author
 - Click on name of author -> Search input -> Click icon -> Name of author
-- See Online contact options
+- [x] See Online contact options
   - Github
   - LinkedIn
   - Orcid
@@ -55,21 +57,20 @@ This is a personal website and resume web application that takes a custom Markdo
     - Home
     - Blog
     - Contact
-- About
-  - I am a board-certified family physician (ABFM) who occasionally builds
-   web applications, frequently works in a federally qualified health center, and is
-   always asking: How do we eliminate my job? Can you please house my
-   patients without homes, feed the ones without food, protect the ones who are
-   being hurt, and treat them all with respect? Wanna team up?
+- [x] About
 - Projects
   - Vinto
 - Blog
-  - Posts
+  - 1 Post : 1 File (MDX)
+  - Reads files --> Array of Posts
+  - Renders posts
+  - Each Post has:
 - Publications
 - Work
   - ACCESS Community Health Network
   - Simple Fractal
   - East Harlem Software
+  - Northwestern Feinberg School of Medicine
 - Education
 - Tools
   - Digital Ocean
@@ -82,6 +83,10 @@ This is a personal website and resume web application that takes a custom Markdo
   - Python
 - Each clickable item needs to have its own page.
 - Each page should be shareable with copy to clipboard for link, tweet, linkedin post, etc.
+
+### Visuals and Design
+
+- [x] social media icons should lay out horizontally
 
 ### Architecture
 
