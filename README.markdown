@@ -63,7 +63,7 @@ Markdown or MDX input and renders a nice resume and portfolio site.
     - Blog
     - Contact
 - [x] About
-- Projects
+- [ ] Projects
   - Vinto
 - Blog
   - 1 Post : 1 File (MDX)

@@ -1,5 +1,7 @@
 import React from "react";
 import { dom } from "@fortawesome/fontawesome-svg-core";
+import { Footer } from "./Footer";
+import { Disclaimer } from "./Disclaimer";
 
 export const Scaffold = ({ children }) => (
   <html lang="en">
@@ -11,6 +13,11 @@ export const Scaffold = ({ children }) => (
       <script defer type="text/javascript" src="dist/bundle.js"></script>
       <title>kevin hu</title>
     </head>
-    <body>{children}</body>
+    <body>
+      <div id="page">{children}</div>
+      <Footer>
+        <Disclaimer />
+      </Footer>
+    </body>
   </html>
 );

@@ -29,7 +29,7 @@ html, body {
   font-family: 'et-book', Georgia, serif;
   font-variant-ligatures: common-ligatures;
   font-variant-numeric: oldstyle-nums;
-  /* margin: 0; */
+  margin: 0;
 }
 
 /* body { */
@@ -38,6 +38,11 @@ html, body {
 /*   grid-template-rows: 100vh; */
 /*   grid-template-areas: "sidebar main" */
 /* } */
+
+#page {
+  margin: auto;
+  max-width: 80vw;
+}
 
 header {
   display: flex;
@@ -61,6 +66,17 @@ div, p, ul, li {
   flex-wrap: wrap;
 }
 
+footer {
+  background-color: #373F51;
+  color: #A9BCD0;
+  display: flex;
+  justify-content: center;
+}
+
+footer > p {
+  font-size: calc( 0.5rem + (1.5 - 0.5) * ( (100vw - 20rem) / (100 - 20) ));
+  font-style: italic;
+}
 /* #material { */
 /*   grid-area: main; */
 /* } */
