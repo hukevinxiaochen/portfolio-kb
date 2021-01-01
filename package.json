@@ -62,7 +62,9 @@
   },
   "nodemonConfig": {
     "ext": "mdx,js,jsx",
-    "ignore": ["tests/*"],
+    "ignore": [
+      "tests/*"
+    ],
     "delay": "2500"
   },
   "prettier": {
