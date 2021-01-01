@@ -10,11 +10,6 @@
     "build-html": "node -r '@babel/register' b3d",
     "build-js-dev": "webpack --config webpack.dev.config.js"
   },
-  "nodemonConfig": {
-    "ext": "mdx,js,jsx",
-    "ignore": ["tests/*"],
-    "delay": "2500"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/khu-md/personal.git"
@@ -64,5 +59,13 @@
     "tape": "^5.0.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"
+  },
+  "nodemonConfig": {
+    "ext": "mdx,js,jsx",
+    "ignore": ["tests/*"],
+    "delay": "2500"
+  },
+  "prettier": {
+    "proseWrap": "always"
   }
 }

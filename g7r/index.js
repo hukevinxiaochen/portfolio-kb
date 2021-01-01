@@ -8,7 +8,7 @@ import ReactDOMServer from "react-dom/server";
 // import Page in the build section
 
 const MDXDocument = fs.readFileSync(
-  path.resolve(__dirname, "..", "client/Page.mdx")
+  path.resolve(__dirname, "..", "client/Main.mdx")
 );
 
 const compose = async () => {
