@@ -12,7 +12,7 @@ const path = require("path");
 const fs = require("fs");
 
 /**
- * build -
+ * planBuild -
  *
  * @param {string} destDir - the name of the directory in which to output
  * a completed static site.
