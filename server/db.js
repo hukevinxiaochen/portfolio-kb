@@ -10,9 +10,11 @@ const driver = neo4j.driver(
   connectionParams.uri,
   neo4j.auth.basic(connectionParams.user, connectionParams.password)
 );
-const session = driver.session();
-const givenName = "Kevin";
 
+const session = driver.session();
+
+// TRIAL SEED
+const givenName = "Kevin";
 (async () => {
   try {
     // consumed eagerly

@@ -1,7 +1,3 @@
-// import { transform } from "@babel/core";
-// import React from "react";
-// import mdx from "@mdx-js/mdx"
-// import { MDXProvider, mdx as createElement } from "@mdx-js/react";
 const babel = require("@babel/core");
 const React = require("react");
 const mdx = require("@mdx-js/mdx");
@@ -43,4 +39,4 @@ const renderWithReact = async (mdxCode) => {
   return elementWithProvider;
 };
 
-export { renderWithReact };
+module.exports = renderWithReact;

@@ -21,6 +21,15 @@ Markdown or MDX input and renders a nice resume and portfolio site.
     - [x] make new components in the components directory
   - style a component
   - style the entire application globally
+  - [ ] create the master project list as seed data, and then...
+    - [ ] derive it from the LaTeX resumes I've built
+  - [ ] whiteboard the data model
+  - [ ] query an API for data stored in a database from our react components
+    - [ ] write schema setup boilerplate to import JSON data into the Neo4j
+          database with the appropriate node types.
+    - [ ] try writing straight JSON and also try writing graphql schema code
+          with Apollo server.
+    - [ ] write Express routes that will run Cypher queries on a Neo4j database.
   - pass data to a page
   - store data that I want to be used by my components
   - modify data very quickly and easily (e.g. I should be able to describe a new
@@ -154,6 +163,13 @@ This module actually does the work of applying transformations to MDX and
 turning it into HTML. The entry file for the build is `client/Main.mdx`. This is
 hard-coded into the `g7r` module so you need to name the main page `Main.mdx`
 and locate it in the `client` directory for any of the build process to work.
+
+The mdx is transpiled to jsx which is transpiled to JavaScript, which is
+executed, outputs a react element, which gets rendered by
+ReactDOMServer.renderToStaticMarkup.
+
+In that JavaScript, we want to incorporate legitimate server-side API queries
+that pull in the necessary data to populate our server-side rendered HTML.
 
 ## b3d
 

@@ -1,5 +1,5 @@
 /**
- * createNode
+ * createNote
  *
  * @function
  * @arg {Session} session - The neo4j-driver Session to use to create a note.
