@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node -r '@babel/register' server",
     "test": "TEST=true tape -r '@babel/register' './tests/**/*.test.js' | tap-spec",
-    "build-html": "nodemon -r '@babel/register' b3d",
+    "build-dev": "nodemon -r '@babel/register' b3d",
+    "build-html": "node -r '@babel/register' b3d",
     "build-js-dev": "webpack --config webpack.dev.config.js"
   },
   "nodemonConfig": {
