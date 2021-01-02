@@ -6,7 +6,7 @@ const neo4j = require("neo4j-driver");
  * @param {object} connectionParams - a JavaScript object with properties
  *   uri, user, password that correspond to a Neo4j instance.
  */
-const makeNeo4jDriver = async (
+const makeNeo4jDriver = (
   connectionParams = {
     uri: "bolt://localhost",
     user: "neo4j",
@@ -17,12 +17,7 @@ const makeNeo4jDriver = async (
     connectionParams.uri,
     neo4j.auth.basic(connectionParams.user, connectionParams.password)
   );
-  try {
-    await driver.verifyConnectivity();
-    return driver;
-  } catch (err) {
-    console.log(`verifyConnectivity failed: ${error}`);
-  }
+  return driver;
 };
 
 module.exports = {

@@ -1,47 +1,38 @@
 const test = require("tape");
 const neo4j = require("neo4j-driver");
 const actions = require("../server/actions");
+const { makeNeo4jDriver } = require("../server/db");
 
 /**
  * INTEGRATION TEST
  */
-const { makeNeo4jDriver } = require("../server/db");
 const testConnectionParams = {
   uri: "bolt://localhost",
   user: "neo4j",
   password: "Neo4j",
 };
-
-let driver;
-(async () => {
-  driver = await makeNeo4jDriver(testConnectionParams);
-})();
+const driver = makeNeo4jDriver(testConnectionParams);
 
 /**
  * SETUP
  */
 test("DB method- createNote", async (t) => {
   // Fail the whole suite if the database is not running
-  const sessionOnSystem = driver.session({ database: "system" });
+  const session = driver.session();
   let databaseRunning;
   try {
-    const defaultDB = await sessionOnSystem.run("SHOW DEFAULT DATABASE");
-    const name = defaultDB.records[0].get("name");
-    databaseRunning = true;
-    await sessionOnSystem.close();
-    t.equal(
+    databaseRunning = await driver.verifyConnectivity();
+    t.deepEqual(
       databaseRunning,
-      true,
-      `neo4j is running, the default DB's name is: ${name}`
+      { address: "localhost:7687", version: "Neo4j/4.1.3" },
+      `neo4j is running and listening at ${databaseRunning.address} with version: ${databaseRunning.version}`
     );
-    const session = driver.session();
     const myNote = {
       title: "Diagnosis of simple cystitis in the outpatient setting",
       content:
         "Having history of new dysuria with either frequency or blood AND absence of vaginal discharge raises pre-test probability of simple cystitis to > 90%",
     };
     const result = await actions.createNote(session, myNote);
-    await session.close();
     t.equal(typeof actions.createNote, "function", "createNote is a function");
     t.equal(result instanceof Array, true, "createNote returns an array");
     t.equal(result.length, 1, "createNote returns an array of length 1");
@@ -51,10 +42,11 @@ test("DB method- createNote", async (t) => {
       "createNote creates a note with a title property"
     );
   } catch (err) {
-    await sessionOnSystem.close();
     t.fail(
       `Neo4j does not appear to be running. None of the DB method tests will run: ${err.message}`
     );
+  } finally {
+    await session.close();
   }
   t.end();
 });
