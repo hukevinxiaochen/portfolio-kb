@@ -1,7 +1,26 @@
 /**
+ * queryDB - a function to which we can pass a Cypher query
+ * and get back the results object
+ *
+ * @param {string} query - a Cypher query as a JavaScript string
+ * @param {Driver} driver - Neo4j driver instance
+ * TODO: Test this function
+ */
+const queryDB = async (query, driver) => {
+  const session = driver.session();
+  try {
+    const result = await session.run(query);
+    return result;
+  } catch (err) {
+    throw err;
+  } finally {
+    await session.close();
+  }
+};
+
+/**
  * createNote
  *
- * @function
  * @arg {Session} session - The neo4j-driver Session to use to create a note.
  * @arg {object} note - The object representing a note with properties title,
  *   content, etc.
@@ -22,5 +41,6 @@ const createNote = async (session, note, author) => {
 };
 
 module.exports = {
-  createNote,
+  queryDB,
+  createNote
 };

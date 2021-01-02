@@ -5,16 +5,17 @@ const actions = require("../server/actions");
 /**
  * INTEGRATION TEST
  */
-const connectionParams = {
+const { makeNeo4jDriver } = require("../server/db");
+const testConnectionParams = {
   uri: "bolt://localhost",
   user: "neo4j",
   password: "Neo4j",
 };
 
-const driver = neo4j.driver(
-  connectionParams.uri,
-  neo4j.auth.basic(connectionParams.user, connectionParams.password)
-);
+let driver;
+(async () => {
+  driver = await makeNeo4jDriver(testConnectionParams);
+})();
 
 /**
  * SETUP
