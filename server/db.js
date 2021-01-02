@@ -1,37 +1,51 @@
 const neo4j = require("neo4j-driver");
 
-const connectionParams = {
-  uri: "bolt://localhost",
-  user: "neo4j",
-  password: "Neo4j",
+/**
+ * makeNeo4jDriver
+ *
+ * @param {object} connectionParams - a JavaScript object with properties
+ *   uri, user, password that correspond to a Neo4j instance.
+ */
+const makeNeo4jDriver = async (
+  query,
+  connectionParams = {
+    uri: "bolt://localhost",
+    user: "neo4j",
+    password: "Neo4j",
+  }
+) => {
+  const driver = neo4j.driver(
+    connectionParams.uri,
+    neo4j.auth.basic(connectionParams.user, connectionParams.password)
+  );
+  try {
+    await driver.verifyConnectivity();
+    return driver;
+  } catch (err) {
+    console.log(`verifyConnectivity failed: ${error}`);
+  }
 };
 
-const driver = neo4j.driver(
-  connectionParams.uri,
-  neo4j.auth.basic(connectionParams.user, connectionParams.password)
-);
-
-const session = driver.session();
-
-// TRIAL SEED
-const givenName = "Kevin";
-(async () => {
+/**
+ * queryDB - a function to which we can pass a Cypher query
+ * and get back the results object
+ *
+ * @param {string} query - a Cypher query as a JavaScript string
+ * TODO: Test this function
+ */
+const queryDB = async (query, driver) => {
+  const session = driver.session();
   try {
-    // consumed eagerly
-    const result = await session.run(
-      "MERGE (k:Author {givenName: $givenName}) RETURN k",
-      {
-        givenName: givenName,
-      }
-    );
-    const singleRecord = result.records[0];
-    const node = singleRecord.get(0);
-
-    console.log(node.properties.givenName);
+    const result = await session.run(query);
+    return result;
   } catch (err) {
-    console.log(err.code, err.message, err.stack);
+    throw err;
   } finally {
-    session.close();
-    driver.close();
+    await session.close();
   }
-})();
+};
+
+module.exports = {
+  makeNeo4jDriver,
+  queryDB,
+};

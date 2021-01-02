@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const express = require("express");
 const app = express();
+// consider getting a database driver opened up
 
 /*
  * ROUTES AND MIDDLEWARE
@@ -56,3 +57,5 @@ app.listen(
   process.env.PORT,
   console.log(`Now listening on ${process.env.PORT}`)
 );
+
+// consider closing the database driver at the end of this process
