@@ -6,33 +6,38 @@ const { makeNeo4jDriver } = require("../server/db");
 /**
  * INTEGRATION TEST
  */
+
+// Test database parameters
 const testConnectionParams = {
   uri: "bolt://localhost",
   user: "neo4j",
   password: "Neo4j",
 };
+
+// Instantiates a driver
 const driver = makeNeo4jDriver(testConnectionParams);
 
-/**
- * SETUP
- */
 test("DB method- createNote", async (t) => {
-  // Fail the whole suite if the database is not running
+  // Setup
   const session = driver.session();
   let databaseRunning;
+  const note = {
+    title: "Diagnosis of simple cystitis in the outpatient setting",
+    content:
+      "Having history of new dysuria with either frequency or blood AND absence of vaginal discharge raises pre-test probability of simple cystitis to > 90%",
+  };
+
   try {
+    // verifyConnectivity should throw an error if DB not available
     databaseRunning = await driver.verifyConnectivity();
     t.deepEqual(
       databaseRunning,
       { address: "localhost:7687", version: "Neo4j/4.1.3" },
       `neo4j is running and listening at ${databaseRunning.address} with version: ${databaseRunning.version}`
     );
-    const myNote = {
-      title: "Diagnosis of simple cystitis in the outpatient setting",
-      content:
-        "Having history of new dysuria with either frequency or blood AND absence of vaginal discharge raises pre-test probability of simple cystitis to > 90%",
-    };
-    const result = await actions.createNote(session, myNote);
+
+    // createNote should be able to create a note in the database
+    const result = await actions.createNote(session, note);
     t.equal(typeof actions.createNote, "function", "createNote is a function");
     t.equal(result instanceof Array, true, "createNote returns an array");
     t.equal(result.length, 1, "createNote returns an array of length 1");

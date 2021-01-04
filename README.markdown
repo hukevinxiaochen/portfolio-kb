@@ -3,26 +3,33 @@
 This is a personal website and resume web application that takes a custom
 Markdown or MDX input and renders a nice resume and portfolio site.
 
-### Author Experience
+### Dev and Documentation Tasks
 
-- Write MDX and get a landing page, search, contact form, and blog
-- The build process should be:
-  - Easy to explain
-  - Transparent with informative logs regarding what it is doing
-  - Customizable
 - It should be clear how to:
   - Write MDX
     - Import an MDX file
     - Pass MDX to a component
     - Import a component
     - Use a component in an MDX file
+
+### Author Experience
+
+- Write MDX and get:
+  - [x] landing page
+  - [ ] search
+  - [ ] contact form
+  - [ ] blog
+- The build process should be explained:
+  - [x] Entrypoint is `client/Main.mdx`
+- The build process should come with informative logs regarding what it is
+  doing.
   - design my main page
   - [x] design a custom component to be used by any component
     - [x] make new components in the components directory
   - style a component
   - style the entire application globally
-  - [ ] create the master project list as seed data, and then...
-    - [ ] derive it from the LaTeX resumes I've built
+  - [x] create the total project list as seed data, and then...
+    - [x] derive it from the LaTeX resumes I've built
   - [ ] whiteboard the data model
   - [ ] query an API for data stored in a database from our react components
     - [ ] write schema setup boilerplate to import JSON data into the Neo4j
@@ -50,17 +57,40 @@ Markdown or MDX input and renders a nice resume and portfolio site.
   - [x] deploy the site with a one-liner `git push`
     - [x] expect a webhook to run automatically when a new release or push to
           main occurs
+- [ ] Use a WYSIWYG Editor to modify all aspects of this blog.
+  - [ ] Spec out the editing flow UI and write tests for the full stack.
 
 ### Reader Experience
 
-- [x] See name of author
-- Click on name of author -> Search input -> Click icon -> Name of author
 - [x] See Online contact options
   - Github
   - LinkedIn
   - Orcid
   - Twitter
   - Contact Form
+- [ ] See the projects (and details) that the Author has been working on.
+  - [ ] Design the project view.
+  - [ ] Prepare JSON with the relevant project details.
+  - [ ] Persist project details in a database.
+  - [ ] Pull project data into React components and render it all as part of the
+        server-side build process.
+- [ ] Dive deeper into each project by clicking on links associated with each
+      project. Examples include: deploy links, repo links, blog post links,
+      people profile links, other project links, note links, tags.
+- [ ] See most recent content uploaded or updated. Should include date written,
+      updated, and excerpt (150 characters).
+- [ ] Click to navigate to a page with an individual blog post.
+  - Each content type should be shareable with copy to clipboard for link,
+    tweet, linkedin post, etc.
+- [ ] Expect consistent branding.
+  - [ ] Expect a successful response to requests for a `favicon.ico`.
+  - [x] See name of author
+- [ ] Expect to be able to search for various content of interest. Click on name
+      of author -> Search input -> Click icon -> Name of author
+  - [ ] Design search bar
+  - [ ] Render search bar
+  - [ ] Animate transition to displaying search bar
+  - [ ] Encapsulate toggling logic in React component
 - onScroll -- show an up-down arrow to facilitate rapid paging only for rapid
   paging
   - engage rapid paging when tap-and-hold-and-move up and down occurs
@@ -72,32 +102,6 @@ Markdown or MDX input and renders a nice resume and portfolio site.
     - Blog
     - Contact
 - [x] About
-- [ ] Projects
-  - Vinto
-- Blog
-  - 1 Post : 1 File (MDX)
-  - Reads files --> Array of Posts
-  - Renders posts
-  - Each Post has:
-- Publications
-- Work
-  - ACCESS Community Health Network
-  - Simple Fractal
-  - East Harlem Software
-  - Northwestern Feinberg School of Medicine
-- Education
-- Tools
-  - Digital Ocean
-  - Debian
-  - LetsEncrypt
-  - React
-  - Git
-  - Node
-  - Ruby
-  - Python
-- Each clickable item needs to have its own page.
-- Each page should be shareable with copy to clipboard for link, tweet, linkedin
-  post, etc.
 
 ### Visuals and Design
 
