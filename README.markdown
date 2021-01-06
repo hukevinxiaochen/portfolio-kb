@@ -59,9 +59,11 @@ Markdown or MDX input and renders a nice resume and portfolio site.
           main occurs
 - [ ] Use a WYSIWYG Editor to modify all aspects of this blog.
   - [ ] Spec out the editing flow UI and write tests for the full stack.
+- [ ] Use Lighthouse PWA and Performance audits to ensure fast page loads.
 
 ### Reader Experience
 
+- [x] Page should load fast, i.e. Time-to-interactive < 10 seconds
 - [x] See Online contact options
   - Github
   - LinkedIn
