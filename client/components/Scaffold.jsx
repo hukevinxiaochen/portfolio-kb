@@ -3,7 +3,7 @@ import { dom } from "@fortawesome/fontawesome-svg-core";
 import { Footer } from "./Footer";
 import { Disclaimer } from "./Disclaimer";
 
-export const Scaffold = ({ children }) => (
+export const Scaffold = ({ name, children }) => (
   <html lang="en">
     <head>
       <meta charSet="UTF-8" />
@@ -11,9 +11,12 @@ export const Scaffold = ({ children }) => (
       <link rel="stylesheet" href="static/css/global.css" />
       <style>{dom.css()}</style>
       <script defer type="text/javascript" src="dist/bundle.js"></script>
-      <title>kevin hu</title>
+      <title>{name}</title>
     </head>
     <body>
+      <header>
+        <h1>{name}</h1>
+      </header>
       <div id="page">{children}</div>
       <Footer>
         <Disclaimer />
