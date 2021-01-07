@@ -2,7 +2,6 @@ const babel = require("@babel/core");
 const React = require("react");
 const mdx = require("@mdx-js/mdx");
 const { mdx: createElement } = require("@mdx-js/react");
-const { Scaffold } = require("../client/components");
 
 // TODO: use transformSync instead
 const babelTransform = (code) =>
@@ -34,9 +33,9 @@ const renderWithReact = async (mdxCode) => {
 
   const element = fn(React, ...Object.values(scope));
 
-  const elementWithProvider = React.createElement(Scaffold, {}, element);
+  const elementWithProvider = React.createElement(React.Fragment, {}, element);
 
   return elementWithProvider;
 };
 
-module.exports = renderWithReact;
+module.exports = { renderWithReact, babelTransform };
