@@ -5,14 +5,25 @@ const mock = require("mock-fs");
 /**
  * Import modules to test
  */
-// import { planBuild } from "../b3d"
 
 const projectRoot = path.resolve(__dirname, "..");
 const planBuild = require(path.resolve(projectRoot, "b3d"));
 
 /**
  * Test Suites
- *
+ */
+
+// Integration Test
+test("build environment", (t) => {
+  t.plan(1);
+  t.equal(
+    process.env.TEST,
+    "true",
+    "the script is aware of when it is in test environment"
+  );
+});
+
+/**
  * planBuild takes a destDir argument and a destFile argument and
  * figures out whether a destDir needs to be created, and also
  * notes if there is an older version of destFile that will
@@ -54,15 +65,5 @@ test("planBuild function", (t) => {
     destFull,
     { destDirExists: true, destFileExists: true },
     "planBuild knows when destination file does exist"
-  );
-});
-
-// Integration Test
-test("build environment", (t) => {
-  t.plan(1);
-  t.equal(
-    process.env.TEST,
-    'true',
-    "the script is aware of when it is in test environment"
   );
 });
