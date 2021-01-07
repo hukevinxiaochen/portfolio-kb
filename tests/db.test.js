@@ -37,19 +37,21 @@ test("DB method- createNote", async (t) => {
     );
 
     // createNote should be able to create a note in the database
-    const result = await actions.createNote(session, note);
+    const records = await actions.createNote(session, note);
     t.equal(typeof actions.createNote, "function", "createNote is a function");
-    t.equal(result instanceof Array, true, "createNote returns an array");
-    t.equal(result.length, 1, "createNote returns an array of length 1");
+    t.equal(records instanceof Array, true, "createNote returns an array");
+    t.equal(records.length, 1, "createNote returns an array of length 1");
+
+    const record = records[0];
+    const node = record.get("n");
+
     t.equal(
-      result[0].has("n.title"),
+      node.properties.hasOwnProperty("title"),
       true,
       "createNote creates a note with a title property"
     );
   } catch (err) {
-    t.fail(
-      `Neo4j does not appear to be running. None of the DB method tests will run: ${err.message}`
-    );
+    t.fail(err.message);
   } finally {
     await session.close();
   }
