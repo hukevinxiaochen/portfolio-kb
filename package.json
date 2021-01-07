@@ -9,8 +9,7 @@
     "dev": "NODE_ENV=development npm run build-js-dev && npm run build-dev",
     "build-dev": "nodemon -r '@babel/register' b3d",
     "build-js-dev": "webpack --watch --config webpack.dev.config.js",
-    "build-html": "node -r '@babel/register' b3d",
-    "build-js-dev": "webpack --config webpack.dev.config.js"
+    "build-html": "node -r '@babel/register' b3d"
   },
   "repository": {
     "type": "git",
