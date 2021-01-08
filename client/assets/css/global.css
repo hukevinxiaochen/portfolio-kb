@@ -91,6 +91,10 @@ footer > p {
   font-size: calc( 0.5rem + (1.5 - 0.5) * ( (100vw - 20rem) / (100 - 20) ));
   font-style: italic;
 }
+
+summary:focus {
+  outline: thin dashed;
+}
 /* #material { */
 /*   grid-area: main; */
 /* } */
