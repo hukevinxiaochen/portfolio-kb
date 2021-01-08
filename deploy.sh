@@ -2,5 +2,4 @@
 echo 'deploying for real now...'
 git pull
 npm install
-npm run build-html
-npm run build-js-dev
+npm run build
