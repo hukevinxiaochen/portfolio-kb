@@ -6,7 +6,7 @@ const path = require("path");
  */
 
 const projectRoot = path.resolve(__dirname, "..");
-const renderWithReact = require(path.resolve(projectRoot, "g7r", "mdxNgin"));
+const { renderWithReact } = require(path.resolve(projectRoot, "g7r", "mdxNgin"));
 
 /**
  * Test Suites
