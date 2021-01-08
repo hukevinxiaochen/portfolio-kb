@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const mdx = require("@mdx-js/mdx");
-const { babelTransform, renderWithReact } = require("./mdxNgin");
+const { renderWithReact } = require("./mdxNgin");
 const ReactDOMServer = require("react-dom/server");
 // NOTE: dynamic import of mdxNgin
 
@@ -9,7 +9,16 @@ const ReactDOMServer = require("react-dom/server");
 const MDXDocument = fs.readFileSync(
   path.resolve(__dirname, "..", "client/Main.mdx")
 );
-const mainJSPath = path.resolve(__dirname, "..", "client/Main.js");
+const mainJSXPath = path.resolve(__dirname, "..", "client/Main.jsx");
+
+const generateJSX = async () => {
+  const jsx = await mdx(MDXDocument);
+  const _logMsg = "Successful JSX";
+  fs.writeFile(mainJSXPath, jsx, () => {
+    console.log("File write step done")
+  });
+  return _logMsg;
+};
 
 // TODO : export a function that takes a React element
 // and shift the input element location logic to the build script
@@ -19,17 +28,9 @@ const makeApp = async () => {
   return page;
 };
 
-const generateJS = async () => {
-  const jsx = await mdx(MDXDocument);
-  const code = babelTransform(jsx);
-  fs.writeFile(mainJSPath, code, () => {
-    console.log("Successful JS");
-  });
-};
-
 const compose = async () => {
-  const Main = await makeApp();
+  const page = await makeApp();
   return ReactDOMServer.renderToString(page);
 };
 
-module.exports = { makeApp, generateJS, compose };
+module.exports = { makeApp, generateJSX, compose };

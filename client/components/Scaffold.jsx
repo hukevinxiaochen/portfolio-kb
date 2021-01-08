@@ -9,7 +9,10 @@ export const Scaffold = ({ name, children }) => (
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href="static/css/global.css" />
-      <style>{dom.css()}</style>
+      <link
+        href="https://use.fontawesome.com/releases/v5.15.1/css/svg-with-js.css"
+        rel="stylesheet"
+      ></link>
       <script defer type="text/javascript" src="dist/bundle.js"></script>
       <title>{name}</title>
     </head>
