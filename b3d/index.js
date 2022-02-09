@@ -13,6 +13,8 @@ const fs = require("fs");
  * a completed static site.
  * @param {string} destFile - the filename of the final site,
  * statically rendered.
+ * @returns {Object} - a true/false mapping telling whether destDir and 
+ * destFile exist.
  */
 const planBuild = (destDir = "dist", destFile = "index.html") => {
   return {
@@ -22,10 +24,12 @@ const planBuild = (destDir = "dist", destFile = "index.html") => {
 };
 
 // WRITE PATHS
+// assign where to write newly built HTML files.
 const writePath = path.resolve(__dirname, "..", "dist", "index.html");
 const writeDir = path.resolve(__dirname, "..", "dist");
 
 // WRITE JSX
+// call the asynchronous JSX generation code to generate our JSX.
 generateJSX()
   .then((result) => console.log(result))
   .catch((err) => {
@@ -33,6 +37,11 @@ generateJSX()
   });
 
 // WRITE HTML IF IN PRODUCTION MODE
+// destructure and assign results of planBuild
+// call compose to generate the htmlData
+// check planBuild results for whether destDirExists
+// - if so, write or overwrite htmlData into index.html
+// - if not, create the dir and then do as above
 if (!process.env.TEST) {
   const { destDirExists, destFileExists } = planBuild(writeDir, writePath);
   compose()
