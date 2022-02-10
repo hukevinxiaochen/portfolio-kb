@@ -13,7 +13,7 @@ export const Scaffold = ({ name, children }) => (
         href="https://use.fontawesome.com/releases/v5.15.1/css/svg-with-js.css"
         rel="stylesheet"
       ></link>
-      <script defer type="text/javascript" src="dist/bundle.js"></script>
+      <script defer src="dist/bundle.js"></script>
       <title>{name}</title>
     </head>
     <body>
