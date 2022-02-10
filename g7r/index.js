@@ -30,7 +30,8 @@ const makeApp = async () => {
 
 const compose = async () => {
   const page = await makeApp();
-  return ReactDOMServer.renderToString(page);
+  const htmlPage = ReactDOMServer.renderToString(page);
+  return `<!DOCTYPE html>${htmlPage}`;
 };
 
 module.exports = { makeApp, generateJSX, compose };
